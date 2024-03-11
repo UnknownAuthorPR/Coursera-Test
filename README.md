@@ -6,6 +6,6 @@ Coursera Test Repository
     
   </head>
   <body>
-    <button onclick="window.location.href = 'index.html';"> SITE </button>
+    <button onclick="window.location.href = 'site';"> SITE </button>
   </body>
 </html>
