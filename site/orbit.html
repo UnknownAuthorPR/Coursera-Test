@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon Orbit Simulation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+        #earth {
+            width: 50px;
+            height: 50px;
+            background-color: #00f;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+        #moon {
+            width: 20px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="earth"></div>
+<div id="moon"></div>
+<script>
+    var earth = document.getElementById('earth');
+    var moon = document.getElementById('moon');
+    var angle = 0;
+    var radius = 100;
+    var speed = 0.05;
+
+    function updateMoonPosition() {
+        angle += speed;
+        var x = radius * Math.cos(angle);
+        var y = radius * Math.sin(angle);
+        moon.style.left = earth.offsetLeft + earth.offsetWidth / 2 + x + 'px';
+        moon.style.top = earth.offsetTop + earth.offsetHeight / 2 + y + 'px';
+    }
+
+    setInterval(updateMoonPosition, 20);
+</script>
+</body>
+</html>
