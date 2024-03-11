@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+        .positive-charge {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            animation: movePositive 2s infinite alternate;
+        }
+        .negative-charge {
+            width: 20px;
+            height: 20px;
+            background-color: blue;
+            border-radius: 50%;
+            position: absolute;
+            left: 20%;
+            top: 50%;
+            animation: moveNegative 2s infinite alternate;
+        }
+        .electric-field-line {
+            width: 1px;
+            height: 100px;
+            background-color: gray;
+            position: absolute;
+        }
+
+        @keyframes movePositive {
+            from {left: 50%}
+            to {left: 20%}
+        }
+
+        @keyframes moveNegative {
+            from {left: 20%}
+            to {left: 50%}
+        }
+    </style>
+</head>
+<body>
+<div class="positive-charge"></div>
+<div class="negative-charge"></div>
+<script>
+    var positiveCharge = document.querySelector('.positive-charge');
+    var negativeCharge = document.querySelector('.negative-charge');
+
+    for (var i = 0; i < 10; i++) {
+        var electricFieldLine = document.createElement('div');
+        electricFieldLine.className = 'electric-field-line';
+        electricFieldLine.style.left = positiveCharge.offsetLeft + 'px';
+        electricFieldLine.style.top = (positiveCharge.offsetTop + positiveCharge.offsetHeight / 2 - 50 + i * 10) + 'px';
+        document.body.appendChild(electricFieldLine);
+    }
+
+    for (var i = 0; i < 10; i++) {
+        var electricFieldLine = document.createElement('div');
+        electricFieldLine.className = 'electric-field-line';
+        electricFieldLine.style.left = negativeCharge.offsetLeft + 'px';
+        electricFieldLine.style.top = (negativeCharge.offsetTop + negativeCharge.offsetHeight / 2 - 50 + i * 10) + 'px';
+        document.body.appendChild(electricFieldLine);
+    }
+</script>
+</body>
+</html>
